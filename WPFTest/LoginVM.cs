@@ -16,16 +16,12 @@ namespace WPFTest
 
         private void RaisePropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
 
 
-        private LoginMdel _LoginMdel = new LoginMdel();
+        private readonly LoginMdel _LoginMdel = new LoginMdel();
 
         public string UserName
         {
